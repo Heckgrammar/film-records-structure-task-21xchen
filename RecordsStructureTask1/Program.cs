@@ -33,7 +33,26 @@
 
             // Write the code to update the andMan record to show the film is currently being shown
 
-
+            Film newestFilm = filmCollection[0];
+            foreach (Film film in filmCollection)
+            {
+                if (film.year > newestFilm.year)
+                {
+                    newestFilm = film;
+                }
+            }
+            Console.WriteLine($"The newest film is: " + newestFilm.title);
+            
+                       
+            for (int i = 0; i < filmCollection.Length; i++)
+            {
+                if (filmCollection[i].title == "Ant-Man")
+                {
+                    filmCollection[i] = new Film(filmCollection[i].title, filmCollection[i].certificate, filmCollection[i].year, true);
+                }
+            }
+            Console.WriteLine($"Updated Ant-Man status: " + filmCollection[2].title + " is being shown");
+            
         }
     }
 }
